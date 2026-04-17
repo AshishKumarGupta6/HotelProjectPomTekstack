@@ -132,7 +132,7 @@ public class HotelTest {
             softAssert.assertAll();
 
         } catch (Throwable t) {
-            // Log to Excel + Extent, then rethrow so TestNG marks it FAIL
+           
             ExcelClass.setCellData(excelPath, sheet, rowIndex, 11, "EmptyList");
             ExcelClass.setCellData(excelPath, sheet, rowIndex, 12, "FAIL");
             ExcelClass.setRedColor(excelPath, sheet, rowIndex, 12);
