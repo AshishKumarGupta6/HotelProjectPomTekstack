@@ -74,13 +74,13 @@ public class HotelTest {
         logger.info("Setting up the browser");
         ScreenShot.resetStepCounter();
 
-        // ❗ Hard assert — no null driver → stop immediately and mark FAIL
+     
         Assert.assertNotNull(driver, "Invalid browser: " + browser);
 
         HomePages homePage = new HomePages(driver);
 
         try {
-            // ❗ Hard assert instead of return
+        
             Assert.assertTrue(homePage.isValidDestination(destination),
                     "Invalid destination: " + destination);
 
@@ -129,11 +129,10 @@ public class HotelTest {
 
             writeExcelStatus(sheet, actualResult.equalsIgnoreCase(expectedResult.trim()));
 
-            // ❗ This will throw AssertionError if soft asserts failed → Extent marks FAIL
             softAssert.assertAll();
 
         } catch (Throwable t) {
-            // Log to Excel + Extent, then rethrow so TestNG marks it FAIL
+           
             ExcelClass.setCellData(excelPath, sheet, rowIndex, 11, "EmptyList");
             ExcelClass.setCellData(excelPath, sheet, rowIndex, 12, "FAIL");
             ExcelClass.setRedColor(excelPath, sheet, rowIndex, 12);
