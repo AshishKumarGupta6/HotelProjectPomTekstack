@@ -19,7 +19,6 @@ public class DataProviderClass {
         int lastRow = sheet.getLastRowNum();
         DataFormatter formatter = new DataFormatter();
 
-        // First pass: count only rows that have actual data
         int validCount = 0;
         for (int i = 1; i <= lastRow; i++) {
             Row row = sheet.getRow(i);
@@ -30,7 +29,6 @@ public class DataProviderClass {
 
         Object[][] data = new Object[validCount][11];
 
-        // Second pass: fill only valid rows
         int index = 0;
         for (int i = 1; i <= lastRow; i++) {
             Row row = sheet.getRow(i);
