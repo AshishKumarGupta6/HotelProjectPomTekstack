@@ -127,8 +127,13 @@ public class HotelTest {
             softAssert.assertEquals(actualResult, expectedResult.trim(),
                     "Sort verification failed");
 
-            writeExcelStatus(sheet, actualResult.equalsIgnoreCase(expectedResult.trim()));
-
+            if (actualResult.equalsIgnoreCase(expectedResult.trim())) {
+                ExcelClass.setCellData(excelPath, sheet, rowIndex, 12, "PASS");
+                ExcelClass.setGreenColor(excelPath, sheet, rowIndex, 12);
+            } else {
+                ExcelClass.setCellData(excelPath, sheet, rowIndex, 12, "FAIL");
+                ExcelClass.setRedColor(excelPath, sheet, rowIndex, 12);
+            }
             softAssert.assertAll();
 
         } catch (Throwable t) {

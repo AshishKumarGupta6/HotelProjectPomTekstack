@@ -30,9 +30,6 @@ public class ExtentReportManager implements ITestListener {
         extent.setSystemInfo("Browser Name", "chrome");
     }
 
-    //	public void onTestStart(ITestResult result) {
-//	    System.out.println("Test started");
-//	  }
     public void onTestSuccess(ITestResult result) {
         test = extent.createTest(result.getName());
         test.log(Status.PASS, "Test case PASSED is: " + result.getName());
